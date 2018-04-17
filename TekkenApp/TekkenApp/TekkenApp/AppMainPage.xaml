@@ -12,7 +12,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <AbsoluteLayout BackgroundColor="#565656" Padding="1,1,1,1">
+                                <AbsoluteLayout BackgroundColor="#565656" Margin="5,5,0,0">
                                     <Label Text="{Binding Name}" TextColor="White" FontSize="25" AbsoluteLayout.LayoutBounds="160,5,1000,1000"/>
                                     <Label Text="{Binding FightingStyle}" TextColor="White" FontSize="20" AbsoluteLayout.LayoutBounds="160,35,1000,1000"/>
                                     <Label Text="{Binding Origin}" TextColor="White" FontSize="20" AbsoluteLayout.LayoutBounds="160,60,1000,1000"/>

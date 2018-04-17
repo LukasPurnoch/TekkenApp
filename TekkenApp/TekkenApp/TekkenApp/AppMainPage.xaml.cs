@@ -18,8 +18,8 @@ namespace TekkenApp
 		{
 			InitializeComponent ();
 
-            Characters.Add(new Profile.Profile() { Name = "Alisa Bosconovitch", FightingStyle = "High Mobility Combat using thrusters", Origin = "Russia", Source = "ImgResources/AlisaBosconovitch.png" });
-
+            Characters.Add(new Profile.Profile() { Name = "Alisa Bosconovitch", FightingStyle = "High Mobility Combat", Origin = "Russia", Source = "ImgResources/AlisaBosconovitch.png" });
+            Characters.Add(new Profile.Profile() { Name = "Asuka Kazama", FightingStyle = "Kazama Traditional Martial Art", Origin = "Japan", Source = "ImgResources/AsukaKazama.png" });
 
             ListViewUser.ItemsSource = Characters;
         }
