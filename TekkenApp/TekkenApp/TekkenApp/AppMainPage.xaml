@@ -3,10 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TekkenApp.AppMainPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to svdf.Forms!"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout BackgroundColor="#424242">
+
+                <Label HeightRequest="75" BackgroundColor="#BC0000"/>
+
+                <ListView x:Name="ListViewUser" RowHeight="75">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <AbsoluteLayout BackgroundColor="#565656" Padding="1,1,1,1">
+                                    <Label Text="Sergei Dragunov" TextColor="White" FontSize="25" AbsoluteLayout.LayoutBounds="160,5,1000,1000"/>
+                                    <Label Text="The White Angel of Death" TextColor="White" FontSize="20" AbsoluteLayout.LayoutBounds="160,35,1000,1000"/>
+                                    <Image Source="ImgResources/SergeiDragunov.png" HeightRequest="100" WidthRequest="150"/>
+                                </AbsoluteLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
