@@ -10,6 +10,11 @@ namespace TekkenApp.Profile
         public string FightingStyle { get; set; }
         public string Origin { get; set; }
         public string Source { get; set; }
+
+        public Profile()
+        {
+
+        }
         
     }
 }

@@ -8,7 +8,7 @@
 
                 <Label Text="TEKKEN 7 GUIDE" Font="Impact" FontSize="50" HeightRequest="75" BackgroundColor="#BC0000" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
-                <ListView x:Name="ListViewUser" RowHeight="100">
+                <ListView x:Name="ListViewUser" RowHeight="100" ItemTapped="SelectedCharacter">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

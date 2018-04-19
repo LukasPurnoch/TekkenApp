@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TekkenApp.ProfilePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="#424242">
+                
+                <Label Text="TEKKEN 7 GUIDE" Font="Impact" FontSize="40" HeightRequest="75" BackgroundColor="#BC0000" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+                <Image x:Name="Source" HeightRequest="100" WidthRequest="150"/>
+
+                <Label x:Name="Name" TextColor="White" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label x:Name="FStyle" TextColor="White" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label x:Name="Origin" TextColor="White" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+
+                <Frame Margin="0,15,0,0">
+                    <AbsoluteLayout>
+                        <Label Text="Story" TextColor="White" FontSize="25" FontAttributes="Italic" AbsoluteLayout.LayoutBounds="10,0,200,50"/>
+
+                        <Label x:Name="BaseStory" TextColor="White" FontSize="15" FontAttributes="Italic" AbsoluteLayout.LayoutBounds="10,40,400,250"/>
+                    </AbsoluteLayout>                    
+                </Frame>                
+                
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
