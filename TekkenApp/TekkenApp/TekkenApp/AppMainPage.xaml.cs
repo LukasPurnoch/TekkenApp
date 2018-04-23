@@ -14,8 +14,6 @@ namespace TekkenApp
 	{
         List<Profile.Profile> Characters = new List<Profile.Profile>();
 
-        public int selectedCharacter;
-
 		public AppMainPage ()
 		{
 			InitializeComponent ();

@@ -7,24 +7,42 @@
             <StackLayout BackgroundColor="#424242">
                 
                 <Label Text="TEKKEN 7 GUIDE" Font="Impact" FontSize="40" HeightRequest="75" BackgroundColor="#BC0000" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-
-                <Image x:Name="Source" HeightRequest="100" WidthRequest="150"/>
-
-                <Label x:Name="Name" TextColor="White" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                <Label x:Name="FStyle" TextColor="White" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-                <Label x:Name="Origin" TextColor="White" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-
-                <Frame Margin="0,15,0,0">
+                <Button x:Name="back" Text="BACK" Clicked="BackBT"/>
+                
+                <Frame>
                     <AbsoluteLayout>
-                        <Label Text="Story" TextColor="White" FontSize="25" FontAttributes="Italic" AbsoluteLayout.LayoutBounds="10,0,200,50"/>
-
-                        <Label x:Name="BaseStory" BackgroundColor="Red" TextColor="White" FontSize="15" FontAttributes="Italic" AbsoluteLayout.LayoutBounds="10,40,400,200"/>
-                    </AbsoluteLayout>                    
+                        <Image x:Name="Source" HeightRequest="100" WidthRequest="150"/>
+                        <Label x:Name="Name" TextColor="White" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" AbsoluteLayout.LayoutBounds="160,0,310,35"/>
+                        <Label x:Name="FStyle" TextColor="White" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" AbsoluteLayout.LayoutBounds="160,35,310,35"/>
+                        <Label x:Name="Origin" TextColor="White" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" AbsoluteLayout.LayoutBounds="160,70,310,35"/>
+                    </AbsoluteLayout>
                 </Frame>
                 
-                <Frame Margin="0,15,0,0">
+                <Frame Margin="0,-30,0,0">
                     <AbsoluteLayout>
-                        <Label Text="Movelist" BackgroundColor="Blue" TextColor="White" FontSize="25" FontAttributes="Italic" AbsoluteLayout.LayoutBounds="10,0,200,50"/>
+                        <Label Text="Personality" TextColor="White" FontSize="25" FontAttributes="Italic" AbsoluteLayout.LayoutBounds="10,0,200,50"/>
+                        <Label x:Name="BaseStory" TextColor="White" FontSize="18" FontAttributes="Italic" AbsoluteLayout.LayoutBounds="10,40,450,230"/>
+                    </AbsoluteLayout>                    
+                </Frame>
+
+                <Frame Margin="0,-35,0,0">
+                    <AbsoluteLayout>
+                        <Label Text="Movelist" TextColor="White" FontSize="25" FontAttributes="Italic" AbsoluteLayout.LayoutBounds="10,0,200,50"/>
+                        
+                        <ListView x:Name="MoveList" RowHeight="100" Margin="-5,11,0,0">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <AbsoluteLayout BackgroundColor="#8B0000" Margin="5,5,0,0">
+                                            <Label Text="{Binding Name}" FontFamily="No_Continue" TextColor="White" FontSize="25" AbsoluteLayout.LayoutBounds="160,5,1000,1000"/>
+                                            <Label Text="{Binding InAlph}" TextColor="White" FontSize="20" AbsoluteLayout.LayoutBounds="160,35,1000,1000"/>
+                                            <Image Source="{Binding Picture}" HeightRequest="100" WidthRequest="150"/>
+                                        </AbsoluteLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        
                     </AbsoluteLayout>
                 </Frame>
 

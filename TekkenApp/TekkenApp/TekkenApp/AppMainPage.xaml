@@ -4,16 +4,16 @@
              x:Class="TekkenApp.AppMainPage">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout BackgroundColor="#424242">
+            <StackLayout BackgroundColor="Black">
 
-                <Label Text="TEKKEN 7 GUIDE" Font="Impact" FontSize="50" HeightRequest="75" BackgroundColor="#BC0000" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label Text="TEKKEN 7 GUIDE" FontFamily="No_Continue" FontSize="50" HeightRequest="75" BackgroundColor="#8B0000" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
 
-                <ListView x:Name="ListViewUser" RowHeight="100" ItemTapped="SelectedCharacter">
+                <ListView x:Name="ListViewUser" RowHeight="100" ItemTapped="SelectedCharacter" Margin="-5,11,0,0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <AbsoluteLayout BackgroundColor="#565656" Margin="5,5,0,0">
-                                    <Label Text="{Binding Name}" TextColor="White" FontSize="25" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="160,5,1000,1000"/>
+                                <AbsoluteLayout BackgroundColor="#8B0000" Margin="5,5,0,0">
+                                    <Label Text="{Binding Name}" FontFamily="No_Continue" TextColor="White" FontSize="25" AbsoluteLayout.LayoutBounds="160,5,1000,1000"/>
                                     <Label Text="{Binding FightingStyle}" TextColor="White" FontSize="20" AbsoluteLayout.LayoutBounds="160,35,1000,1000"/>
                                     <Label Text="{Binding Origin}" TextColor="White" FontSize="20" AbsoluteLayout.LayoutBounds="160,60,1000,1000"/>
                                     <Image Source="{Binding Source}" HeightRequest="100" WidthRequest="150"/>
