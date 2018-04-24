@@ -17,7 +17,7 @@ namespace TekkenApp
 			InitializeComponent ();
 
             M_Name.Text = moveList.Name;
-
+            //https://www.c-sharpcorner.com/article/xamarin-forms-video-player-app/
         }
 
         private void BackBT(object sender, EventArgs e)
