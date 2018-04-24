@@ -28,23 +28,22 @@
                 <Frame Margin="0,-35,0,0">
                     <AbsoluteLayout>
                         <Label Text="Movelist" TextColor="White" FontSize="25" FontAttributes="Italic" AbsoluteLayout.LayoutBounds="10,0,200,50"/>
-                        
-                        <ListView x:Name="MoveList" RowHeight="100" Margin="-5,11,0,0">
-                            <ListView.ItemTemplate>
-                                <DataTemplate>
-                                    <ViewCell>
-                                        <AbsoluteLayout BackgroundColor="#8B0000" Margin="5,5,0,0">
-                                            <Label Text="{Binding Name}" FontFamily="No_Continue" TextColor="White" FontSize="25" AbsoluteLayout.LayoutBounds="160,5,1000,1000"/>
-                                            <Label Text="{Binding InAlph}" TextColor="White" FontSize="20" AbsoluteLayout.LayoutBounds="160,35,1000,1000"/>
-                                            <Image Source="{Binding Picture}" HeightRequest="100" WidthRequest="150"/>
-                                        </AbsoluteLayout>
-                                    </ViewCell>
-                                </DataTemplate>
-                            </ListView.ItemTemplate>
-                        </ListView>
-                        
                     </AbsoluteLayout>
                 </Frame>
+
+                <ListView x:Name="MoveList" RowHeight="90" ItemTapped="SelectedMove" Margin="-5,-40,0,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <AbsoluteLayout BackgroundColor="#8B0000" Margin="5,5,0,0">
+                                    <Label Text="{Binding Name}" FontFamily="No_Continue" TextColor="White" FontSize="20" AbsoluteLayout.LayoutBounds="30,0,1000,20"/>
+                                    <Label Text="{Binding InAlph}" TextColor="White" FontSize="15" AbsoluteLayout.LayoutBounds="30,25,1000,20"/>
+                                    <Image Source="{Binding Picture}" AbsoluteLayout.LayoutBounds="30,35,60,60"/>
+                                </AbsoluteLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
             </StackLayout>
         </ScrollView>

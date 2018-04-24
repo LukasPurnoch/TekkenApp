@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TekkenApp.MovePage"
+             xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#424242">
+            
+            <Label Text="TEKKEN 7 GUIDE" Font="Impact" FontSize="40" HeightRequest="75" BackgroundColor="#BC0000" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button x:Name="back" Text="BACK" Clicked="BackBT"/>
+
+            <Frame>
+                <AbsoluteLayout>
+                    <forms:VideoView x:Name="M_Player" HeightRequest="100" WidthRequest="150" Source="/MoveList/CharactersMoves/Alisa/Alisa_"/>
+                    <Label x:Name="M_Name" FontSize="20"/>
+                </AbsoluteLayout>
+            </Frame>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

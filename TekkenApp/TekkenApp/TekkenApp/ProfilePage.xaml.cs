@@ -27,12 +27,19 @@ namespace TekkenApp
 
             StorySelect(profile.Name);
 
-            MoveListShow();
+            CharactersMoves.Alisa alisa = new CharactersMoves.Alisa();
+            alisa.AlisaMoves(MoveList);
 		}
 
         private void BackBT(object sender, EventArgs e)
         {
             Navigation.PushModalAsync(new AppMainPage());
+        }
+
+        private void SelectedMove(object sender, ItemTappedEventArgs e)
+        {
+            Navigation.PushModalAsync(new MovePage(e.Item as Profile.MoveList));
+            MoveList.SelectedItem = null;
         }
 
         public void StorySelect(string Name)
@@ -267,12 +274,6 @@ namespace TekkenApp
             }
         }
 
-        public void MoveListShow()
-        {
-            MoveList_List.Add(new Profile.MoveList() { Name = "Stop Bit", Picture = "MoveList/CharactersMoves/Alisa/Alisa_" + adding + ".png", InAlph = "1, 1", Damage = "7, 18", HitLevel = "H, H"
-            , Block = "-3", Hit = "+5", Counter = "KND", Speed = "10", Video = "MoveList/CharactersMoves/Alisa/Alisa_" + adding + ".mp4" });
 
-            MoveList.ItemsSource = MoveList_List;
-        }
 	}
 }
