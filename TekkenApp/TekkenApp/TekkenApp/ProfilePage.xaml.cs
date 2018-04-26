@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,34 +13,39 @@ namespace TekkenApp
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProfilePage : ContentPage
 	{
-        public int adding = 3;
+        List<Profile.Attack_TYPE> MoveList_List = new List<Profile.Attack_TYPE>();
 
-        List<Profile.MoveList> MoveList_List = new List<Profile.MoveList>();
+        Database.Database_Connection database = new Database.Database_Connection("Movelist_Alisa.db3");
 
-        public ProfilePage (Profile.Profile profile)
+        List<Profile.Attack_TYPE> attackList1 = new List<Profile.Attack_TYPE>();
+        List<string> attackList2 = new List<string>();
+
+        public ProfilePage (int index)
 		{
 			InitializeComponent ();
 
-            Name.Text = profile.Name;
-            FStyle.Text = profile.FightingStyle;
-            Origin.Text = profile.Origin;
-            Source.Source = profile.Source;
+            attackList1 = database.GetAll().Result;
 
-            StorySelect(profile.Name);
+            /*foreach (Profile.Attack_TYPE data in attackList1)
+            {
+                attackList2.Add(data.Name);
+            }
 
-            CharactersMoves.Alisa alisa = new CharactersMoves.Alisa();
-            alisa.AlisaMoves(MoveList);
+            MoveListView.ItemsSource = attackList2;*/
 		}
 
         private void BackBT(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new AppMainPage());
+            App.Current.MainPage.Navigation.PopModalAsync();
         }
 
         private void SelectedMove(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushModalAsync(new MovePage(e.Item as Profile.MoveList));
-            MoveList.SelectedItem = null;
+            int index = (MoveListView.ItemsSource as List<Profile.Attack_TYPE>).IndexOf(e.Item as Profile.Attack_TYPE);
+            Navigation.PushModalAsync(new MovePage(index));
+
+            //Navigation.PushModalAsync(new MovePage(e.Item as Profile.MoveList));
+            //MoveList.SelectedItem = null;
         }
 
         public void StorySelect(string Name)

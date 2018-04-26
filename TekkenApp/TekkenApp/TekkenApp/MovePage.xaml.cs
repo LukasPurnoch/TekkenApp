@@ -12,12 +12,11 @@ namespace TekkenApp
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MovePage : ContentPage
 	{
-		public MovePage (Profile.MoveList moveList)
+		public MovePage (int index)
 		{
 			InitializeComponent ();
 
-            M_Name.Text = moveList.Name;
-            //https://www.c-sharpcorner.com/article/xamarin-forms-video-player-app/
+
         }
 
         private void BackBT(object sender, EventArgs e)

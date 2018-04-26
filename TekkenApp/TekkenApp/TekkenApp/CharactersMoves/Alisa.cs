@@ -13,11 +13,11 @@ namespace TekkenApp.CharactersMoves
     {
         public int adding = 3;
 
-        List<Profile.MoveList> MoveList_List = new List<Profile.MoveList>();
+        List<Profile.Attack_TYPE> MoveList_List = new List<Profile.Attack_TYPE>();
 
         public void AlisaMoves(ListView list)
         {
-            MoveList_List.Add(new Profile.MoveList()
+            MoveList_List.Add(new Profile.Attack_TYPE()
             {
                 Name = "Stop Bit",
                 Picture = "MoveList/CharactersMoves/Alisa/Alisa_" + adding + ".png",

@@ -31,7 +31,7 @@
                     </AbsoluteLayout>
                 </Frame>
 
-                <ListView x:Name="MoveList" RowHeight="90" ItemTapped="SelectedMove" Margin="-5,-40,0,0">
+                <ListView x:Name="MoveListView" RowHeight="90" ItemTapped="SelectedMove" Margin="-5,-40,0,0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

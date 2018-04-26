@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SQLite;
 
 namespace TekkenApp
 {
@@ -14,14 +15,26 @@ namespace TekkenApp
 	{
         List<Profile.Profile> Characters = new List<Profile.Profile>();
 
+        Database.Database_Connection database = new Database.Database_Connection("Movelist_Alisa.db3");
+
 		public AppMainPage ()
 		{
 			InitializeComponent ();
 
-            ChacterShow();
+            CharacterShow();
+            Save();
+            
         }
 
-        private void ChacterShow()
+        private async void Save()
+        {
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Stop Bit", Picture = "MoveList/CharactersMoves/Alisa/Alisa_3.png", InAlph = "1, 1", Damage = "7, 18", HitLevel = "H, H",
+            Block = "-3", Hit = "+5", Counter = "KND", Speed = "10", Video = "MoveList/CharactersMoves/Alisa/Alisa_3.mp4"};
+            
+            await database.SaveAttack(save);
+        }
+
+        private void CharacterShow()
         {
             Characters.Add(new Profile.Profile() { Name = "Alisa Bosconovitch", FightingStyle = "High Mobility Combat", Origin = "Russia", Source = "ImgResources/AlisaBosconovitch.png" });
             Characters.Add(new Profile.Profile() { Name = "Asuka Kazama", FightingStyle = "Kazama Traditional Martial Art", Origin = "Japan", Source = "ImgResources/AsukaKazama.png" });
@@ -54,7 +67,6 @@ namespace TekkenApp
             Characters.Add(new Profile.Profile() { Name = "Panda", FightingStyle = "Improved Kuma Shinken", Origin = "Japan", Source = "ImgResources/Panda.png" });
             Characters.Add(new Profile.Profile() { Name = "Paul Phoenix", FightingStyle = "Modified Judo", Origin = "USA", Source = "ImgResources/PaulPhoenix.png" });
             Characters.Add(new Profile.Profile() { Name = "Raven", FightingStyle = "Ninjutsu", Origin = "Unknown", Source = "ImgResources/Raven.png" });
-            Characters.Add(new Profile.Profile() { Name = "Jin Kazama", FightingStyle = "Karate", Origin = "Japan", Source = "ImgResources/JinKazama.png" });
             Characters.Add(new Profile.Profile() { Name = "Sergei Dragunov", FightingStyle = "Command Sambo", Origin = "Russia", Source = "ImgResources/SergeiDragunov.png" });
             Characters.Add(new Profile.Profile() { Name = "Shaheen", FightingStyle = "Military Fighting Style", Origin = "Saudi Arabia", Source = "ImgResources/Shaheen.png" });
             Characters.Add(new Profile.Profile() { Name = "Steve Fox", FightingStyle = "Box", Origin = "UK", Source = "ImgResources/SteveFox.png" });
@@ -65,8 +77,13 @@ namespace TekkenApp
 
         private void SelectedCharacter(object sender, ItemTappedEventArgs e)
         {
-            Navigation.PushModalAsync(new ProfilePage(e.Item as Profile.Profile));
-            ListViewUser.SelectedItem = null;
+            
+
+            int index = (ListViewUser.ItemsSource as List<Profile.Profile>).IndexOf(e.Item as Profile.Profile);
+            Navigation.PushModalAsync(new ProfilePage(index));
+            
+            //DisplayAlert(index.ToString(), "message", "cancel");
+            //ListViewUser.SelectedItem = null;
         }
     }
 }
