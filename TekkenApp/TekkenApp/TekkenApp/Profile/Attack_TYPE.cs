@@ -19,5 +19,6 @@ namespace TekkenApp.Profile
         public string Counter { get; set; }
         public string Speed { get; set; }
         public string Video { get; set; }
+        public string SpecialProperty { get; set; }
     }
 }
