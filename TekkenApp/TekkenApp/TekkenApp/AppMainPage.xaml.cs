@@ -10,28 +10,107 @@ using SQLite;
 
 namespace TekkenApp
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class AppMainPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class AppMainPage : ContentPage
+    {
         List<Profile.Profile> Characters = new List<Profile.Profile>();
 
         Database.Database_Connection database = new Database.Database_Connection("Movelist_Alisa.db3");
 
-		public AppMainPage ()
-		{
-			InitializeComponent ();
+        public AppMainPage()
+        {
+            InitializeComponent();
 
             CharacterShow();
             Save();
-            
+
         }
 
         private async void Save()
         {
-            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Stop Bit", Picture = "MoveList/CharactersMoves/Alisa/Alisa_3.png", InAlph = "1, 1", Damage = "7, 18", HitLevel = "H, H",
-            Block = "-3", Hit = "+5", Counter = "KND", Speed = "10", Video = "MoveList/CharactersMoves/Alisa/Alisa_3.mp4"};
+            /*
             
-            await database.SaveAttack(save);
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Rage Art", Picture = "MoveList/CharactersMoves/Alisa/Alisa_1.png", InAlph = "b, 1+2", Damage = "55", HitLevel = "M",
+            Block = "+1", Hit = "KND", Counter = "KND", Speed = "13", Video = "MoveList/CharactersMoves/Alisa/Alisa_1.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Rage Drive", Picture = "MoveList/CharactersMoves/Alisa/Alisa_2.png", InAlph = "f+2+3", Damage = "55", HitLevel = "M",
+            Block = "-1", Hit = "0", Counter = "0", Speed = "10", Video = "MoveList/CharactersMoves/Alisa/Alisa_2.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Stop Bit", Picture = "MoveList/CharactersMoves/Alisa/Alisa_3.png", InAlph = "1, 1", Damage = "7, 18", HitLevel = "H, H",
+            Block = "-3", Hit = "+5", Counter = "KND", Speed = "10", Video = "MoveList/CharactersMoves/Alisa/Alisa_3.mp4", SpecialProperty = "None"};
+            
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Stop Bit to Destructive Form", Picture = "MoveList/CharactersMoves/Alisa/Alisa_4.png", InAlph = "1, 1, 1+2", Damage = "7, 18", HitLevel = "H, H",
+            Block = "-3", Hit = "+5", Counter = "KND", Speed = "10", Video = "MoveList/CharactersMoves/Alisa/Alisa_4.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Coil Punch Combo", Picture = "MoveList/CharactersMoves/Alisa/Alisa_5.png", InAlph = "1, 2, 2", Damage = "7, 10, 17", HitLevel = "H, H, L",
+            Block = "-11~-10", Hit = "+2~+3", Counter = "KND", Speed = "10", Video = "MoveList/CharactersMoves/Alisa/Alisa_5.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Accelerator Combo", Picture = "MoveList/CharactersMoves/Alisa/Alisa_6.png", InAlph = "1, 2, 4", Damage = "7, 10, 21" HitLevel = "H, H, H",
+            Block = "-5~-4", Hit = "KND", Counter = "KND", Speed = "10", Video = "MoveList/CharactersMoves/Alisa/Alisa_6.mp4", SpecialProperty = "Tailspin"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Down Time", Picture = "MoveList/CharactersMoves/Alisa/Alisa_7.png", InAlph = "2, 3, 3", Damage = "7, 10, 20" HitLevel = "H, M, M",
+            Block = "-11~-9", Hit = "KND", Counter = "KND", Speed = "12a", Video = "MoveList/CharactersMoves/Alisa/Alisa_7.mp4", SpecialProperty = "Tailspin"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Down Link", Picture = "MoveList/CharactersMoves/Alisa/Alisa_8.png", InAlph = "2, 3, 4", Damage = "7, 10, 20" HitLevel = "H, M, L",
+            Block = "-19~-16", Hit = "KND", Counter = "KND", Speed = "js24~", Video = "MoveList/CharactersMoves/Alisa/Alisa_8.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Right Jab to Accelerator", Picture = "MoveList/CharactersMoves/Alisa/Alisa_9.png", InAlph = "2, 4", Damage = "10, 21" HitLevel = "H, H",
+            Block = "-5~-4", Hit = "KND", Counter = "KND", Speed = "24~", Video = "MoveList/CharactersMoves/Alisa/Alisa_9.mp4", SpecialProperty = "Tailspin"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Quick Access", Picture = "MoveList/CharactersMoves/Alisa/Alisa_10.png", InAlph = "3, 2", Damage = "12,4*5" HitLevel = "M, M x 5 (DES)",
+            Block = "-9", Hit = "+1", Counter = "+1", Speed = "14~15", Video = "MoveList/CharactersMoves/Alisa/Alisa_10.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Accelerator", Picture = "MoveList/CharactersMoves/Alisa/Alisa_11.png", InAlph = "4", Damage = "24" HitLevel = "H",
+            Block = "-5~-4", Hit = "KND", Counter = "KND", Speed = "13~14", Video = "MoveList/CharactersMoves/Alisa/Alisa_11.mp4", SpecialProperty = "Tailspin, Homing"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Gigabyte Hammer", Picture = "MoveList/CharactersMoves/Alisa/Alisa_12.png", InAlph = "1+2", Damage = "21" HitLevel = "M (TJ)",
+            Block = "-5~-4", Hit = "KND", Counter = "KND", Speed = "33~34 js7~", Video = "MoveList/CharactersMoves/Alisa/Alisa_12.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Dual Session", Picture = "MoveList/CharactersMoves/Alisa/Alisa_13.png", InAlph = "f+2, 1", Damage = "12, 20" HitLevel = "M, M (DES)",
+            Block = "-20~-19", Hit = "CS", Counter = "CS", Speed = "17~18", Video = "MoveList/CharactersMoves/Alisa/Alisa_13.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Session to Destructive", Picture = "MoveList/CharactersMoves/Alisa/Alisa_14.png", InAlph = "f+2, 1+2", Damage = "12" HitLevel = "M (DES)",
+            Block = "-4~-3", Hit = "+7~+8", Counter = "+7~+8", Speed = "17~18", Video = "MoveList/CharactersMoves/Alisa/Alisa_14.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Triple Session", Picture = "MoveList/CharactersMoves/Alisa/Alisa_15.png", InAlph = "f+2, 3, 3", Damage = "12, 8, 20" HitLevel = "M, H (TJ), M",
+            Block = "-10~-9", Hit = "ED", Counter = "ED", Speed = "js1~12", Video = "MoveList/CharactersMoves/Alisa/Alisa_15.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Lost Access", Picture = "MoveList/CharactersMoves/Alisa/Alisa_16.png", InAlph = "f+3, 2", Damage = "13, 20" HitLevel = "M, H (DES)",
+            Block = "-4~-2", Hit = "KND", Counter = "KND", Speed = "14~15", Video = "MoveList/CharactersMoves/Alisa/Alisa_16.mp4", SpecialProperty = "Tailspin"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Automatic Transmission", Picture = "MoveList/CharactersMoves/Alisa/Alisa_17.png", InAlph = "f+3, 1+2", Damage = "13, 25" HitLevel = "H, M (DES)",
+            Block = "-13~-12", Hit = "CS", Counter = "CS", Speed = "14~15", Video = "MoveList/CharactersMoves/Alisa/Alisa_17.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Logic Bomb", Picture = "MoveList/CharactersMoves/Alisa/Alisa_18.png", InAlph = "f+4, 1, 4", Damage = "14, 14, 24" HitLevel = "M, H , M",
+            Block = "-14~+12(-12)", Hit = "KND", Counter = "KND", Speed = "16", Video = "MoveList/CharactersMoves/Alisa/Alisa_18.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Overflow", Picture = "MoveList/CharactersMoves/Alisa/Alisa_19.png", InAlph = "f+1+2", Damage = "25" HitLevel = "M",
+            Block = "-12~-11", Hit = "+7~+8", Counter = "+7~+8", Speed = "14~15", Video = "MoveList/CharactersMoves/Alisa/Alisa_19.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Overflow to Boot", Picture = "MoveList/CharactersMoves/Alisa/Alisa_20.png", InAlph = "f+1+2, 3+4", Damage = "25" HitLevel = "M (SPECIAL)(TJ)(SBT)",
+            Block = "-16~-15", Hit = "+3~+4", Counter = "+3~+4", Speed = "14~15a", Video = "MoveList/CharactersMoves/Alisa/Alisa_20.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Overflow to Dual Boot", Picture = "MoveList/CharactersMoves/Alisa/Alisa_21.png", InAlph = "f+1+2, f+3+4", Damage = "25" HitLevel = "M (SPECIAL)(TJ)(DBT)",
+            Block = "-16~-15", Hit = "+3~+4", Counter = "+3~+4", Speed = "14~15a", Video = "MoveList/CharactersMoves/Alisa/Alisa_21.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Boot", Picture = "MoveList/CharactersMoves/Alisa/Alisa_22.png", InAlph = "f+3+4", Damage = "0" HitLevel = "0",
+            Block = "0", Hit = "0", Counter = "0", Speed = "x", Video = "MoveList/CharactersMoves/Alisa/Alisa_22.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Abort (During Boot)", Picture = "MoveList/CharactersMoves/Alisa/Alisa_23.png", InAlph = "d  /  b", Damage = "0" HitLevel = "0",
+            Block = "0", Hit = "0", Counter = "0", Speed = "0", Video = "MoveList/CharactersMoves/Alisa/Alisa_23.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Hard Reset", Picture = "MoveList/CharactersMoves/Alisa/Alisa_25.png", InAlph = "SBT 1, 2, 1, 3+4", Damage = "12, 13, 7, 5, 28" HitLevel = "M, M, M, MM",
+            Block = "-18", Hit = "KND", Counter = "KND", Speed = "js1~", Video = "MoveList/CharactersMoves/Alisa/Alisa_24.mp4", SpecialProperty = "None"};
+
+            Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Hard Reset to Destructive", Picture = "MoveList/CharactersMoves/Alisa/Alisa_25.png", InAlph = "SBT 1, 2, 1, 3+4, 1+2", Damage = "12, 13, 7, 5, 28" HitLevel = "M, M, M, MM (DES)",
+            Block = "-18~-17", Hit = "KND", Counter = "KND", Speed = "js1~", Video = "MoveList/CharactersMoves/Alisa/Alisa_25.mp4", SpecialProperty = "None"};
+
+            */
+
+            //await database.SaveAttack(save);
+
+            //Database.Database_Access ac = new Database.Database_Access();
+            //ac.FindDB();
         }
 
         private void CharacterShow()
@@ -77,11 +156,11 @@ namespace TekkenApp
 
         private void SelectedCharacter(object sender, ItemTappedEventArgs e)
         {
-            
+
 
             int index = (ListViewUser.ItemsSource as List<Profile.Profile>).IndexOf(e.Item as Profile.Profile);
             Navigation.PushModalAsync(new ProfilePage(index));
-            
+
             //DisplayAlert(index.ToString(), "message", "cancel");
             //ListViewUser.SelectedItem = null;
         }
