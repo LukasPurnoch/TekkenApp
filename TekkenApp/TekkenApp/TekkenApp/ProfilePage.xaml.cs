@@ -24,7 +24,7 @@ namespace TekkenApp
 		{
 			InitializeComponent ();
 
-            attackList1 = database.GetAll().Result;
+            //attackList1 = database.GetAll().Result;
 
             /*foreach (Profile.Attack_TYPE data in attackList1)
             {
