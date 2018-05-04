@@ -15,27 +15,28 @@ namespace TekkenApp
     {
         List<Profile.Profile> Characters = new List<Profile.Profile>();
 
-        Database.Database_Connection database = new Database.Database_Connection("Movelist_Alisa.db3");
+        Database.Database_Connection database = new Database.Database_Connection("Alisa_Moves.db3");
 
         public AppMainPage()
         {
             InitializeComponent();
 
             CharacterShow();
-            Save();
 
+            Save(); 
         }
 
         private async void Save()
         {
 
-            /*
+            
             Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Rage Art", Picture = "MoveList/CharactersMoves/Alisa/Alisa_1.png", InAlph = "b, 1+2", Damage = "55", HitLevel = "M",
             Block = "+1", Hit = "KND", Counter = "KND", Speed = "13", Video = "MoveList/CharactersMoves/Alisa/Alisa_1.mp4", SpecialProperty = "None"};
-
+            
+            /*
             Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Rage Drive", Picture = "MoveList/CharactersMoves/Alisa/Alisa_2.png", InAlph = "f+2+3", Damage = "55", HitLevel = "M",
             Block = "-1", Hit = "0", Counter = "0", Speed = "10", Video = "MoveList/CharactersMoves/Alisa/Alisa_2.mp4", SpecialProperty = "None"};
-
+            /*
             Profile.Attack_TYPE save = new Profile.Attack_TYPE() { Name = "Stop Bit", Picture = "MoveList/CharactersMoves/Alisa/Alisa_3.png", InAlph = "1, 1", Damage = "7, 18", HitLevel = "H, H",
             Block = "-3", Hit = "+5", Counter = "KND", Speed = "10", Video = "MoveList/CharactersMoves/Alisa/Alisa_3.mp4", SpecialProperty = "None"};
             
@@ -168,7 +169,7 @@ namespace TekkenApp
             */
 
 
-            //await database.SaveAttack(save);
+            await database.SaveAttack(save);
 
             //Database.Database_Access ac = new Database.Database_Access();
             //ac.FindDB();
