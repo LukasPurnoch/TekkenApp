@@ -9,10 +9,10 @@ namespace TekkenApp.Database
     {
         public void FindDB()
         {
-            //string[] dirs = Directory.GetFiles("Movelist_Alisa.db3");
-            //string path = dirs[0];
+            string[] dirs = Directory.GetFiles("Movelist_Alisa.db3");
+            string path = dirs[0];
 
-            //File.Copy(path, @"d:\");
+            File.Copy(path, @"c:\");
         }
     }
 }
